@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.HierarchicalData.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.Windows.Controls.TreeCommands">
+            <summary>
+            Provides a standard set of tree related commands.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.Expand">
+            <summary>
+            Gets the value that indicates the Expand command.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.ExpandBranch">
+            <summary>
+            Gets the value that indicates the Expand Branch command.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.ExpandAll">
+            <summary>
+            Gets the value that indicates the Expand All command.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.Collapse">
+            <summary>
+            Gets the value that indicates the Collapse command.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.CollapseBranch">
+            <summary>
+            Gets the value that indicates the Collapse Branch command.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeCommands.CollapseAll">
+            <summary>
+            Gets the value that indicates the Collapse All command.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.TreeGridViewColumn">
+            <summary>
+            Represents a column that displays hierarchical data.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.TreeListViewItem">
+            <summary>
+            Represents an item in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> control aware of its indentation and expansion state (can be expanded or collapsed).
+            It is recommended to set at least these data properties: <see cref="P:DlhSoft.Windows.Controls.TreeListViewItem.Indentation">Indentation</see>.
+            These data properties can also be set: <see cref="P:DlhSoft.Windows.Controls.TreeListViewItem.IsExpanded">IsExpanded</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItem.IndentationProperty">
+            <summary>
+            Identifies the Indentation dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItem.IsExpandedProperty">
+            <summary>
+            Identifies the IsExpanded dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItem.Indentation">
+            <summary>
+            Gets or sets the indentation level of this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItem">TreeListViewItem</see>.
+            The hierarchy is based on the indentation level values of the nodes, so that a node with a lower index in the collection and having a specific indentation level will become the parent node for the nodes with a higher index in the collection and having an increased indentation level. 
+            It is recommended to set this property.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItem.IsExpanded">
+            <summary>
+            Gets or sets the expansion indicator of this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItem">TreeListViewItem</see>.
+            If a parent node is expanded its child nodes become visible. If a parent node is collapsed its child nodes become invisible.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.Licensing.TreeListView">
+            <summary>
+            Provides licensing utilities for TreeListView control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Licensing.TreeListView.SetLicense(System.String)">
+            <summary>
+            Predefines the license content to be considered for TreeListView component instances, at initialization time.
+            </summary>
+            <param name="licenseContent">The XML content string of the license to be defined for this component type.</param>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.TreeListViewItemControl">
+            <summary>
+            Displays the indented content of a <see cref="T:DlhSoft.Windows.Controls.TreeListViewItem">TreeListViewItem</see> providing an expander that allows the user to expand or collapse the node in the hierarchy.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.OnApplyTemplate">
+            <summary>
+            Invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItemControl.NodeProperty">
+            <summary>
+            Identifies the Node dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.OnNodeChanged(DlhSoft.Windows.Data.Node,DlhSoft.Windows.Data.Node)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListViewItemControl.Node">Node</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItemControl.NodeContentTemplateProperty">
+            <summary>
+            Identifies the NodeContentTemplate dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.OnNodeContentTemplateChanged(System.Windows.DataTemplate,System.Windows.DataTemplate)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListViewItemControl.NodeContentTemplate">NodeContentTemplate</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItemControl.IsNodeExpansionReadOnlyProperty">
+            <summary>
+            Identifies the IsNodeExpansionReadOnly dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.OnIsNodeExpansionReadOnlyChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListViewItemControl.IsNodeExpansionReadOnly">IsNodeExpansionReadOnly</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListViewItemControl.IsExpanderVisibleProperty">
+            <summary>
+            Identifies the IsExpanderVisible attached property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.GetIsExpanderVisible(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value indicating whether node expansion toggle button is enabled for a specified element such as a node item within <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.SetIsExpanderVisible(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets a value indicating whether node expansion toggle button is enabled for a specified element such as a node item within <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.OnIsExpanderVisibleChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListViewItemControl.IsExpanderVisible">IsExpanderVisible</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.Expand">
+            <summary>
+            Expands the node in this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListViewItemControl.Collapse">
+            <summary>
+            Collapses the node in this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> when possible.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.Node">
+            <summary>
+            Gets or sets the node to be presented by this control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.NodeContentTemplate">
+            <summary>
+            Gets or sets the data template to be used to display the specified node.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.IsNodeExpansionReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the node expansion state is read-only in the <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> control so that the user cannot update it using the keyboard or mouse or by executing specific commands.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.IsExpanderVisible">
+            <summary>
+            Gets or sets a value indicating whether the expansion toggle button is visible within this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.CanExpand">
+            <summary>
+            Gets a value indicating whether the node in this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> can be expanded.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListViewItemControl.CanCollapse">
+            <summary>
+            Gets a value indicating whether the node in this <see cref="T:DlhSoft.Windows.Controls.TreeListViewItemControl">TreeListViewItemControl</see> can be collapseed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Converters.SizeConverter">
+            <summary>
+            Converts values to widths or heights; the converter parameter specifies the value to multiply by (the default value is 16).
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.SizeConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.SizeConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.TreeListView">
+            <summary>
+            Represents a control that displays a tree-list of node data items.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property to add node data items to an <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> managed by the control, or set <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> to your own node data item collection.
+            It is recommended to set at least these data member properties: <see cref="P:DlhSoft.Windows.Controls.TreeListView.IndentationMemberPath">IndentationMemberPath</see>.
+            These data member properties can also be set: <see cref="P:DlhSoft.Windows.Controls.TreeListView.IsExpandedMemberPath">IsExpandedMemberPath</see>.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.TreeListView.NodeManagerSource">NodeManagerSource</see> to a customized node manager to use and to ignore the items collection and any associated data member properties.
+            It is recommended to use a single <see cref="P:DlhSoft.Windows.Controls.TreeListView.NodeManager">NodeManager</see> instance for each set of distinct node data items and data member properties at any specific time, and to use the <see cref="M:DlhSoft.Windows.Data.EntityManager.Dispose">Dispose</see> method to release the resources used by an instance that is no longer needed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.CreateEntityManager(System.Collections.IEnumerable)">
+            <summary>
+            Establishes the node manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            </summary>
+            <param name="items">Item collection to be managed.</param>
+            <returns>The node manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.</returns>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.IndentationMemberPathProperty">
+            <summary>
+            Identifies the IndentationMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnIndentationMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.IndentationMemberPath">IndentationMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.IsExpandedMemberPathProperty">
+            <summary>
+            Identifies the IsExpandedMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnIsExpandedMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.IsExpandedMemberPath">IsExpandedMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.NodeManagerSourceProperty">
+            <summary>
+            Identifies the NodeManagerSource dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnNodeManagerSourceChanged(DlhSoft.Windows.Data.NodeManager,DlhSoft.Windows.Data.NodeManager)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.NodeManagerSource">NodeManagerSource</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.NodeManagerProperty">
+            <summary>
+            Identifies the NodeManager dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.ManagedNodesProperty">
+            <summary>
+            Identifies the ManagedNodes dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.IsNodeIndentationReadOnlyProperty">
+            <summary>
+            Identifies the IsNodeIndentationReadOnly dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnIsNodeIndentationReadOnlyChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.IsNodeIndentationReadOnly">IsNodeIndentationReadOnly</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnIsNodeIndentationReadOnlyChanged">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.IsNodeIndentationReadOnly">IsNodeIndentationReadOnly</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.IsNodeExpansionReadOnlyProperty">
+            <summary>
+            Identifies the IsNodeExpansionReadOnly dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnIsNodeExpansionReadOnlyChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.IsNodeExpansionReadOnly">IsNodeExpansionReadOnly</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.SelectedNodeProperty">
+            <summary>
+            Identifies the SelectedNode dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.SelectedNodesProperty">
+            <summary>
+            Identifies the SelectedNodes dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.IncreaseIndentation">
+            <summary>
+            Increases the indentation of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.DecreaseIndentation">
+            <summary>
+            Decreases the indentation of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.Expand">
+            <summary>
+            Expands the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.ExpandBranch">
+            <summary>
+            Expands the branches of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.ExpandAll">
+            <summary>
+            Expands all nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> that are not already expanded.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.Collapse">
+            <summary>
+            Collapses the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.CollapseBranch">
+            <summary>
+            Collapses the branches of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> when possible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.CollapseAll">
+            <summary>
+            Collapses all nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> that are not already collapsed.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.RootNodesProperty">
+            <summary>
+            Identifies the RootNodes dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnRootNodesChanged(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node},System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.RootNodes">RootNodes</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.RootCountProperty">
+            <summary>
+            Identifies the RootCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnRootCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.RootCount">RootCount</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.LeafNodesProperty">
+            <summary>
+            Identifies the LeafNodes dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnLeafNodesChanged(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node},System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.LeafNodes">LeafNodes</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.TreeListView.LeafCountProperty">
+            <summary>
+            Identifies the LeafCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.OnLeafCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.TreeListView.LeafCount">LeafCount</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.BindItems">
+            <summary>
+            Binds the <see cref="T:System.Windows.Controls.ListView">ListView</see> host using the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntities">LoadedEntities</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.LoadEntities">
+            <summary>
+            Prepares the node items to be presented by the control based on the current items and data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.GetItemsControlHostItemTemplate">
+            <summary>
+            Gets the item template to be used within the <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> host.
+            </summary>
+            <returns>The item template to be used within the <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> host.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.UpdateSelectedEntityItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Updates the internal selected item collection to reflect the selection changes in the ListView host.
+            </summary>
+            <param name="addedItems">Gets a list that contains the entities that were selected.</param>
+            <param name="removedItems">Gets a list that contains the entities that were unselected.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.InitializeGridViewColumns(System.Windows.Controls.GridViewColumnCollection,System.Windows.Controls.GridViewColumnCollection)">
+            <summary>
+            Initializes the <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be used based on a specified source <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see>.
+            </summary>
+            <param name="sourceGridViewColumns">The source <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be considered.</param>
+            <param name="referencedGridViewColumns">The <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be used.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.GetColumnCellTemplate(System.Windows.Controls.GridViewColumn,System.Windows.DataTemplate)">
+            <summary>
+            Gets the column cell template of a specified <see cref="T:System.Windows.Controls.GridViewColumn">GridViewColumn</see>.
+            </summary>
+            <param name="gridViewColumn">The column to get the cell template for.</param>
+            <param name="contentTemplate">The content template to be used.</param>
+            <returns>The column cell template of the specified <see cref="T:System.Windows.Controls.GridViewColumn">GridViewColumn</see>.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.GetNode(System.Object)">
+            <summary>
+            Gets the node in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> that wraps the specified item.
+            </summary>
+            <param name="item">The item to get the node for.</param>
+            <returns>The node in the hierarchy that wraps the specified item.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.TreeListView.GetNodeAt(System.Int32)">
+            <summary>
+            Gets the node in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the node to be get.</param>
+            <returns>The node in the hierarchy at the specified index.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.IndentationMemberPath">
+            <summary>
+            Gets or sets the path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item. 
+            The hierarchy is based on the indentation level values of the nodes, so that a node with a lower index in the collection and having a specific indentation level will become the parent node for the nodes with a higher index in the collection and having an increased indentation level. 
+            It is recommended to set this property.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.IsExpandedMemberPath">
+            <summary>
+            Gets or sets the path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.
+            If a parent node is expanded its child nodes become visible. If a parent node is collapsed its child nodes become invisible.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.NodeManagerSource">
+            <summary>
+            Gets or sets a custom <see cref="P:DlhSoft.Windows.Controls.TreeListView.NodeManager">NodeManager</see> object to use internally within this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            When this property is set to a node manager instance the control items collection and the associated data member properties are ignored.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.NodeManager">
+            <summary>
+            Gets the <see cref="P:DlhSoft.Windows.Controls.TreeListView.NodeManager">NodeManager</see> object that is used internally for managing nodes displayed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.ManagedNodes">
+            <summary>
+            Gets the node collection managed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.IsNodeIndentationReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the node indentation is read-only in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> control so that the user cannot update it using the keyboard or by executing specific commands.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.IsNodeExpansionReadOnly">
+            <summary>
+            Gets or sets a value indicating whether the node expansion state is read-only in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> control so that the user cannot update it using the keyboard or mouse or by executing specific commands.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.SelectedNode">
+            <summary>
+            Gets or sets the first node in the current selection or returns null if the selection is empty.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Windows.Controls.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.SelectedNodes">
+            <summary>
+            Gets the currently selected nodes.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Windows.Controls.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanIncreaseIndentation">
+            <summary>
+            Gets a value indicating whether the indentation for any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be increased.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanDecreaseIndentation">
+            <summary>
+            Gets a value indicating whether the indentation for any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be decreased.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanExpand">
+            <summary>
+            Gets a value indicating whether any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be expanded.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanExpandBranch">
+            <summary>
+            Gets a value indicating whether the branch can be expanded for any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanExpandAll">
+            <summary>
+            Gets a value indicating whether any node in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be expanded.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanCollapse">
+            <summary>
+            Gets a value indicating whether any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be collapsed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanCollapseBranch">
+            <summary>
+            Gets a value indicating whether the branch can be collapsed for any of the selected nodes in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.CanCollapseAll">
+            <summary>
+            Gets a value indicating whether any node in this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> can be collapsed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.RootNodes">
+            <summary>
+            Gets the root nodes managed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.RootCount">
+            <summary>
+            Gets the count of root nodes managed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.LeafNodes">
+            <summary>
+            Gets the leaf nodes managed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.LeafCount">
+            <summary>
+            Gets the count of leaf nodes managed by this <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.TreeListView.Item(System.Object)">
+            <summary>
+            Gets the node in the <see cref="T:DlhSoft.Windows.Controls.TreeListView">TreeListView</see> that wraps the specified item.
+            </summary>
+            <param name="item">The item to get the node for.</param>
+            <returns>The node in the hierarchy that wraps the specified item.</returns>
+        </member>
+    </members>
+</doc>

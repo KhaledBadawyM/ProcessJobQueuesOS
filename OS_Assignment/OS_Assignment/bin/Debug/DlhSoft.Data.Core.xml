@@ -1,0 +1,976 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.Data.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.Windows.Data.DataManagementMode">
+            <summary>
+            Represents an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> data management mode.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.DataManagementMode.Standard">
+            <summary>
+            Standard data management mode, using two-way data binding to a collection of data items.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.DataManagementMode.Simple">
+            <summary>
+            Simple data management mode, requiring adding, updating, and removing entities manually (using Add, Remove method or the indexer of the entity manager object).
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.NewItemEventArgs">
+            <summary>
+            Provides data for the <see cref="E:DlhSoft.Windows.Data.ReadOnlyEntityCollection.NewItem">NewItem</see> event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NewItemEventArgs.#ctor(DlhSoft.Windows.Data.Entity,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NewItemEventArgs">NewItemEventArgs</see> class.
+            </summary>
+            <param name="parentEntity">The parent entity of the new item.</param>
+            <param name="parameters">List of parameters used for actually creating the new item.</param>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NewItemEventArgs.Item">
+            <summary>
+            Gets or sets the newly creating item.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NewItemEventArgs.Parameters">
+            <summary>
+            Gets the list of parameters that can be used for creating the new item.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NewItemEventArgs.ParentEntity">
+            <summary>
+            Gets the parent entity of the new item.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NewItemEventArgs.ParentItem">
+            <summary>
+            Gets the parent item of the new item.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NewItemEventArgs.Cancel">
+            <summary>
+            Gets or sets a value indicating whether the creation of the new item is cancelled.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.EntityItem">
+            <summary>
+            Represents an entity item that can be used as a source object to be wrapped within an <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> and managed using an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or hosted within a data management control.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.IEntityItem">
+            <summary>
+            Represents the interface of an entity item that can be used as a source object to be wrapped within an <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> and managed using an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or hosted within a data management control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.IEntityItem.Content">
+            <summary>
+            Gets or sets the content of this <see cref="T:DlhSoft.Windows.Data.IEntityItem">IEntityItem</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityItem.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see> class.
+            </summary>
+            <param name="content">Content of this <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see>.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityItem.ContentProperty">
+            <summary>
+            Identifies the Content dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityItem.TagProperty">
+            <summary>
+            Identifies the Tag dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityItem.ToString">
+            <summary>
+            Provides a string representation of this <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see> object.
+            </summary>
+            <returns>The string representation of the object.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityItem.Content">
+            <summary>
+            Gets or sets the content of this <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityItem.Tag">
+            <summary>
+            Gets or sets an arbitrary object value that can be used to store custom information about this <see cref="T:DlhSoft.Windows.Data.EntityItem">EntityItem</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.Entity">
+            <summary>
+            Represents an entity item object wrapper generated and managed by an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>, aware of the parent collection or entity that owns it.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.#ctor(System.Object,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> class.
+            </summary>
+            <param name="item">Entity item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+            <param name="completingParentManagerInitialization">A method to be called when the initialization of the parent <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is completed.</param>
+            <param name="insertedIntoParentCollectionInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is inserted into the parent collection.</param>
+            <param name="removingFromParentCollectionInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is removed from the parent collection.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is disposed.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> class.
+            </summary>
+            <param name="item">Entity item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.#ctor(DlhSoft.Windows.Data.Entity,System.Object,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> class and sets it as owned by a specified parent entity.
+            </summary>
+            <param name="parentEntity">The parent <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> that owns this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+            <param name="item">Entity item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+            <param name="parentEntitySetInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is set as owned by a parent entity.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is disposed.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.#ctor(DlhSoft.Windows.Data.Entity,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> class and sets it as owned by a specified parent entity.
+            </summary>
+            <param name="parentEntity">The parent <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> that owns this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+            <param name="item">Entity item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.#ctor(System.Object,DlhSoft.Windows.Data.Entity.Initialization)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> class.
+            </summary>
+            <param name="item">Entity item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is inserted into the parent collection.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.ItemProperty">
+            <summary>
+            Identifies the Item dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.ParentCollectionProperty">
+            <summary>
+            Identifies the ParentCollection dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.IndexProperty">
+            <summary>
+            Identifies the Index dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnParentManagerInitializeEntitiesComplete">
+            <summary>
+            Called when the initialization of the parent <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is completed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnInsertedIntoParentCollection">
+            <summary>
+            Called after the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is inserted into the parent collection.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnRemovingFromParentCollection">
+            <summary>
+            Called before the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is removed from the parent collection.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.ParentManagerProperty">
+            <summary>
+            Identifies the ParentManager dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.ParentEntityProperty">
+            <summary>
+            Identifies the ParentEntity dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnParentEntitySet">
+            <summary>
+            Called after the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> was set as owned by a parent collection.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.RelatedEntitiesProperty">
+            <summary>
+            Identifies the RelatedEntities dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.AddRelatedEntity(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Adds an entity to the related entities collection of this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            </summary>
+            <param name="relatedEntity">The related entity to add.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnRelatedEntityAdded(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Called when an entity is added to the related entities collection.
+            </summary>
+            <param name="relatedEntity">The added related entity.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.RemoveRelatedEntity(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Removes an entity from the related entities collection of this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            </summary>
+            <param name="relatedEntity">The related entity to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnRelatedEntityRemoved(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Called when an entity is removed from the related entities collection.
+            </summary>
+            <param name="relatedEntity">The removed related entity.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.IsVisibleProperty">
+            <summary>
+            Identifies the IsVisible dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnIsVisibleChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Entity.IsVisible">IsVisible</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnVisibilityChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Entity.VisibilityChanged">VisibilityChanged</see> event.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Entity.IsFilteringVisibleProperty">
+            <summary>
+            Identifies the IsFilteringVisible dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnIsFilteringVisibleChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Entity.IsFilteringVisible">IsFilteringVisible</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnFilteringVisibilityChanged">
+            <summary>
+            Applies visibility changes when filtering visibility changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.UpdateValue(System.Windows.DependencyProperty,System.Object)">
+            <summary>
+            Sets the local value of a dependency property, specified by its dependency property identifier, if the specified new value is different than the previous value of that dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.UpdateValue(System.Windows.DependencyPropertyKey,System.Object)">
+            <summary>
+            Sets the local value of a dependency property, specified by its <see cref="T:System.Windows.DependencyPropertyKey">DependencyPropertyKey</see> identifier, if the specified new value is different than the previous value of that dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.RemoveValue(System.Windows.DependencyProperty)">
+            <summary>
+            Clears the local value of a dependency property, specified by its dependency property identifier.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.RemoveValue(System.Windows.DependencyPropertyKey)">
+            <summary>
+            Clears the local value of a dependency property, specified by its <see cref="T:System.Windows.DependencyPropertyKey">DependencyPropertyKey</see> identifier.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Entity.OnDisposing">
+            <summary>
+            Called when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is disposed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.Item">
+            <summary>
+            Gets (or sets, when using simple data management mode) the object wrapped by this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.ParentCollection">
+            <summary>
+            Gets the parent collection that owns this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.Index">
+            <summary>
+            Gets the index of this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> in the parent collection that owns it.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.ParentManager">
+            <summary>
+            Gets the parent manager that owns this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.ParentEntity">
+            <summary>
+            Gets the parent entity that owns this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.RelatedEntities">
+            <summary>
+            Gets the related entities collection of this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.IsVisible">
+            <summary>
+            Gets or sets a value indicating whether or not this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is visible in the collection.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Entity.VisibilityChanged">
+            <summary>
+            Occurs when the visibility changes for this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.IsFilteringVisible">
+            <summary>
+            Gets or sets a value indicating whether or not this <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is visible in the collection based when filtering is applied.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Entity.IsDisposed">
+            <summary>
+            Gets a value indicating whether the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is currently disposed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Entity.Disposing">
+            <summary>
+            Occurs when the <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> is disposed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.Entity.Initialization">
+            <summary>
+            Represents a method that provides <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> initialization.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.ReadOnlyEntityCollection">
+            <summary>
+            Read-only observable collection of <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> objects.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.#ctor(DlhSoft.Windows.Data.EntityCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.ReadOnlyEntityCollection">ReadOnlyEntityCollection</see> class.
+            </summary>
+            <param name="entities">Source entity collection to be used by the new read-only entity collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.OnNewItem(System.Boolean@,System.Object[])">
+            <summary>
+            Raises the NewItem event when a new item is created in the collection by calling <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method to allow the event handlers to create their own item type. If the event handlers do not set up a new item (using the Item property setter of the event arguments) creates a new item by calling <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.CreateNewItem(System.Object[])">CreateNewItem</see> method.
+            </summary>
+            <param name="cancel">Indicates whether the creation of the new item is cancelled.</param>
+            <param name="parameters">List of parameters passed from <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method used for actually creating the new item. Inheriters can customize this list as their own item type requires.</param>
+            <returns>The newly created item.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.CreateNewItem(System.Object[])">
+            <summary>
+            Called when a new item is created in the collection by calling <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method and the event handlers of the <see cref="E:DlhSoft.Windows.Data.ReadOnlyEntityCollection.NewItem">NewItem</see> event haven't set up the new item themselves.
+            Inheriters should return their own item type based on the parameters list provided.
+            </summary>
+            <param name="parameters">List of parameters passed from <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method used for actually creating the new item. Inheriters can customize this list as their own item type requires.</param>
+            <returns>The newly created item.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">
+            <summary>
+            Delegates inserting of a new item created based on the specified parameters to the bound managed item collection.
+            </summary>
+            <param name="index">Zero-based index to insert the new item to.</param>
+            <param name="parameters">List of custom parameters representing values that can be used for creating the new item.</param>
+            <returns>The entity wrapping the new item created and inserted into the bound managed item collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertItem(System.Int32,System.Object)">
+            <summary>
+            Delegates inserting of an item to the bound managed item collection.
+            </summary>
+            <param name="index">Zero-based index to insert the item to.</param>
+            <param name="item">The item to insert.</param>
+            <returns>The entity wrapping the item inserted into the bound managed item collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.AddNewItem(System.Object[])">
+            <summary>
+            Delegates adding of a new item created based on the specified parameters to the bound managed item collection.
+            </summary>
+            <param name="parameters">List of custom parameters representing values that can be used for creating the new item.</param>
+            <returns>The entity wrapping the new item added into the bound managed item collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.AddItem(System.Object)">
+            <summary>
+            Delegates adding of an item to the bound managed item collection.
+            </summary>
+            <param name="item">The item to add.</param>
+            <returns>The entity wrapping the item added into the bound managed item collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.RemoveItemAt(System.Int32)">
+            <summary>
+            Delegates removing of an item from the bound managed item collection.
+            </summary>
+            <param name="index">Zero-based index to remove the item from.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.RemoveItem(System.Object)">
+            <summary>
+            Delegates removing of an item from the bound managed item collection.
+            </summary>
+            <param name="item">The item to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.ClearItems">
+            <summary>
+            Delegates clearing of all items from the bound managed item collection.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.ReadOnlyEntityCollection.ParentManager">
+            <summary>
+            Gets the parent manager of this collection.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.ReadOnlyEntityCollection.Item(System.Int32)">
+            <summary>
+            Gets the entity at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the entity to get.</param>
+            <returns>The entity at the specified index.</returns>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.ReadOnlyEntityCollection.NewItem">
+            <summary>
+            Occurs when a new item is created in the collection by calling <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method to allow the event handlers to create their own item type.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.SimpleEntityItem">
+            <summary>
+            Represents a simple entity item that can be used as a data definition object when inserting or adding an <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> using an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> with simple data management mode.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.SimpleEntityItem.ToString">
+            <summary>
+            Provides a string representation of this <see cref="T:DlhSoft.Windows.Data.SimpleEntityItem">SimpleEntityItem</see> object.
+            </summary>
+            <returns>The string representation of the object.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.SimpleEntityItem.Content">
+            <summary>
+            Gets or sets the content of this <see cref="T:DlhSoft.Windows.Data.SimpleEntityItem">SimpleEntityItem</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.SimpleEntityItem.Tag">
+            <summary>
+            Gets or sets an arbitrary object value that can be used to store custom information about this <see cref="T:DlhSoft.Windows.Data.SimpleEntityItem">SimpleEntityItem</see>.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.EntityManager">
+            <summary>
+            Basic object collection management engine that uses an entity collection to wrap the objects internally.
+            Inheriters can provide initialization and change management operations for managing customized collections using the internal entity collection.
+            Use <see cref="P:DlhSoft.Windows.Data.EntityManager.Items">Items</see> property to set your own entity data item collection to manage and use <see cref="P:DlhSoft.Windows.Data.EntityManager.Entities">Entities</see> property to access the managed entity collection mapping your items.
+            It is recommended to use a single <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> instance for each set of distinct data items and data member properties at any specific time, and to use the <see cref="M:DlhSoft.Windows.Data.EntityManager.Dispose">Dispose</see> method to release the resources used by an instance that is no longer needed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class.
+            </summary>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleEntityItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class using simple data management mode.
+            </summary>
+            <param name="simpleEntityItems">Item definitions representing entities to be initially added to the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(DlhSoft.Windows.Data.Entity,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or null if the manager has no parent entity.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(DlhSoft.Windows.Data.Entity,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleEntityItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class  using simple data management mode.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or null if the manager has no parent entity.</param>
+            <param name="simpleEntityItems">Item definitions representing entities to be initially added to the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(DlhSoft.Windows.Data.Entity,System.Collections.IEnumerable,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or null if the manager has no parent entity.</param>
+            <param name="items">Collection of entity items to be managed.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> initializes.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is disposed.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.#ctor(System.Collections.IEnumerable,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> class.
+            </summary>
+            <param name="items">Collection of entity items to be managed.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> initializes.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is disposed.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnInitialization">
+            <summary>
+            Called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is initialized.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.CreateEntityCollection">
+            <summary>
+            Creates the internal entity collection to be used as the entity host of this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            Inheriters should override this method and provide their own entity collection type.
+            </summary>
+            <returns>The internal entity collection to be used as the entity host of this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.CreateReadOnlyEntityCollection(DlhSoft.Windows.Data.EntityCollection)">
+            <summary>
+            Creates the internal read-only entity collection to be provided by this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            Inheriters should override this method and provide their own read-only entity collection type.
+            </summary>
+            <param name="entities">Internal entity collection to be used as the source for the read only entity collection.</param>
+            <returns>The internal read-only entity collection to be provided by this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.InitializeEntityCollection(DlhSoft.Windows.Data.EntityCollection)">
+            <summary>
+            Initializes the read only entity collection to be used for viewing entities externally.
+            Inheriters should override this method to initialize their own read only entity collection type.
+            </summary>
+            <param name="entities">Internal entity collection to be used as the source for the read only entity collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.CreateEntity(System.Object)">
+            <summary>
+            Creates a new entity wrapping the specified object.
+            Inheriters should override this method to create their own entity type.
+            </summary>
+            <param name="item">Entity item to be wrapped by the new entity.</param>
+            <returns>The new entity that wraps the specified object.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.CreateEntityFromSimpleItem(DlhSoft.Windows.Data.SimpleEntityItem)">
+            <summary>
+            Creates a new entity for simple data management mode.
+            Inheriters should override this method to create their own entity type.
+            </summary>
+            <param name="entityItem">The entity item definition to use.</param>
+            <returns>The new entity.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.BeginInit">
+            <summary>
+            Signals the entity manager that initialization is starting.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.EndInit">
+            <summary>
+            Signals the entity manager that initialization is complete.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityManager.IsInitializedProperty">
+            <summary>
+            Identifies the IsInitialized dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnInitialized(System.EventArgs)">
+            <summary>
+            Notifies that initialization of the entity manager is completed and binds the entity collection to the specified data objects that are to be managed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleEntityItem})">
+            <summary>
+            Inserts a set of entities into the managed collection.
+            </summary>
+            <param name="index">The zero-based index at which the entities should be inserted.</param>
+            <param name="simpleEntityItems">Item definitions representing the entities to insert.</param>
+            <returns>The new entities.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Insert(System.Int32,DlhSoft.Windows.Data.SimpleEntityItem)">
+            <summary>
+            Inserts an entity into the managed collection.
+            </summary>
+            <param name="index">The zero-based index at which the entity should be inserted.</param>
+            <param name="simpleEntityItem">Item definition representing the entity to insert.</param>
+            <returns>The new entity.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.AddRange(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleEntityItem})">
+            <summary>
+            Adds a set of entities to the end of the managed collection.
+            </summary>
+            <param name="simpleEntityItems">Item definitions representing the entities to be added at the end of the collection.</param>
+            <returns>The new entities.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Add(DlhSoft.Windows.Data.SimpleEntityItem)">
+            <summary>
+            Adds an entity to the end of the managed collection.
+            </summary>
+            <param name="simpleEntityItem">Item definition representing the entity to be added at the end of the collection.</param>
+            <returns>The new entities.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.RemoveRangeAt(System.Int32,System.Int32)">
+            <summary>
+            Removes the entities at the specified index of the managed collection.
+            </summary>
+            <param name="index">The zero-based index of the entities to remove.</param>
+            <param name="count">The number of entities to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.RemoveAt(System.Int32)">
+            <summary>
+            Removes the entity at the specified index of the managed collection.
+            </summary>
+            <param name="index">The zero-based index of the entity to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.RemoveRange(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Entity})">
+            <summary>
+            Removes specific entities from the managed collection.
+            </summary>
+            <param name="entities">The entities to remove from the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Remove(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Removes a specific entity from the managed collection.
+            </summary>
+            <param name="entity">The entity to remove from the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Clear">
+            <summary>
+            Removes all entities from the managed collection.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityManager.ParentEntityProperty">
+            <summary>
+            Identifies the ParentEntity dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityManager.EntitiesProperty">
+            <summary>
+            Identifies the Entities dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityManager.ItemsProperty">
+            <summary>
+            Identifies the Items dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.EntityManager.CountProperty">
+            <summary>
+            Identifies the Count dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.EntityManager.Count">Count</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.GetEntity(System.Object)">
+            <summary>
+            Gets the entity that wraps the specified object from the internal entity collection, or null if such entity doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The entity that wraps the specified object from the internal entity collection, or null if such entity doesn't exist.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.GetEntityAt(System.Int32)">
+            <summary>
+            Gets the entity at the specified index from the internal entity collection.
+            </summary>
+            <param name="index">The zero-based index of the entity to be get.</param>
+            <returns>The entity at the specified index from the internal entity collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnVisibilityFilterChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.EntityManager.VisibilityFilterChanged">VisibilityFilterChanged</see>.
+            Called when the visibility filter is changed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnDataPropertyChanged">
+            <summary>
+            Signals that a data binding property such as Items is changed.
+            Inheriters should call this method from the PropertyChanged callbacks of their own data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnInitializeEntitiesCompleting(System.Int32,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Entity})">
+            <summary>
+            Executed when the managed entities are initialized.
+            Inheriters may override this method to provide final property invalidation for the managed entities.
+            <param name="index">The initial index of the entities.</param>
+            <param name="entities">The initialized entities.</param>
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnInitializeEntitiesCompleted">
+            <summary>
+            Executed after the managed entities are initialized.
+            Inheriters may override this method to provide finalization for the managed entities.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnEntitiesChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.EntityManager.EntitiesChanged">EntitiesChanged</see> event. 
+            Called when the entities collection is changed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnNewItem(System.Boolean@,System.Object[])">
+            <summary>
+            Raises the NewItem event when a new item is created in the collection to allow the event handlers to create their own item type.
+            </summary>
+            <param name="cancel">Indicates whether the creation of the new item is cancelled.</param>
+            <param name="parameters">List of parameters used for actually creating the new item.</param>
+            <returns>The newly created item.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.UpdateValue(System.Windows.DependencyProperty,System.Object)">
+            <summary>
+            Sets the local value of a dependency property, specified by its dependency property identifier, if the specified new value is different than the previous value of that dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.UpdateValue(System.Windows.DependencyPropertyKey,System.Object)">
+            <summary>
+            Sets the local value of a dependency property, specified by its <see cref="T:System.Windows.DependencyPropertyKey">DependencyPropertyKey</see> identifier, if the specified new value is different than the previous value of that dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.RemoveValue(System.Windows.DependencyProperty)">
+            <summary>
+            Clears the local value of a dependency property, specified by its dependency property identifier.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.RemoveValue(System.Windows.DependencyPropertyKey)">
+            <summary>
+            Clears the local value of a dependency property, specified by its <see cref="T:System.Windows.DependencyPropertyKey">DependencyPropertyKey</see> identifier.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Move(System.Object,System.Int32)">
+            <summary>
+            Moves an item to a new index in the managed collection.
+            </summary>
+            <param name="item">The item to move.</param>
+            <param name="toIndex">The index to move the item to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Move(System.Int32,System.Int32)">
+            <summary>
+            Moves an item to a new index in the managed collection.
+            </summary>
+            <param name="fromIndex">The index to move the item from.</param>
+            <param name="toIndex">The index to move the item to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.MoveRange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Moves a range of items to a new index in the managed collection.
+            </summary>
+            <param name="fromIndex">The index to move the items from.</param>
+            <param name="count">The count of items to move.</param>
+            <param name="toIndex">The index to move the items to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityManager.OnDisposing">
+            <summary>
+            Called when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is disposed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.DataManagementMode">
+            <summary>
+            Gets a value indicating the data management mode used with the entity manager.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.IsInitialized">
+            <summary>
+            Gets a value indicating whether the entity manager is initialized.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.EntityManager.Initialized">
+            <summary>
+            Occurs when initialization of the entity manager is completed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.IsUsingSimpleDataManagementMode">
+            <summary>
+            Gets a value indicating whether the simple data management mode is used with this entity manager.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.ParentEntity">
+            <summary>
+            Gets the parent <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> that owns this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> or null if the manager has no parent entity.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.Entities">
+            <summary>
+            Gets the read-only entity collection wrapping the objects that are currently managed.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.Items">
+            <summary>
+            Gets or sets the object collection to be managed.
+            </summary>
+            This is a dependency property.
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.Count">
+            <summary>
+            Gets the count of entities managed by this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.EntityCount">
+            <summary>
+            Gets the actual count of entities managed by this <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.Item(System.Object)">
+            <summary>
+            Gets the entity that wraps the specified object from the internal entity collection, or null if such entity doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The entity that wraps the specified object from the internal entity collection, or null if such entity doesn't exist.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.VisibilityFilter">
+            <summary>
+            Gets or sets the visibility filter to apply on the managed entities.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.EntityManager.VisibilityFilterChanged">
+            <summary>
+            Occurs when the visibility filter is changed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.IsInitializingEntities">
+            <summary>
+            Gets a value indicating whether the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is currently initializing its entity collection.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.EntityManager.EntitiesChanged">
+            <summary>
+            Occurs when the entities collection is changed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.EntityManager.NewItem">
+            <summary>
+            Occurs when a new item is created in the collection to allow the event handlers to create their own item type.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityManager.IsDisposed">
+            <summary>
+            Gets a value indicating whether the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is currently disposed.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.EntityManager.Disposing">
+            <summary>
+            Occurs when the <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is disposed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.EntityManager.Initialization">
+            <summary>
+            Represents a method that provides <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> initialization.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.NewItemEventHandler">
+            <summary>
+            Represents the method that will handle a <see cref="E:DlhSoft.Windows.Data.ReadOnlyEntityCollection.NewItem">NewItem</see> event of the <see cref="T:DlhSoft.Windows.Data.ReadOnlyEntityCollection">ReadOnlyEntityCollection</see> class.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.EntityCollection">
+            <summary>
+            Observable collection that owns <see cref="T:DlhSoft.Windows.Data.Entity">Entity</see> objects used internally by an <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.#ctor(DlhSoft.Windows.Data.EntityManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.EntityCollection">EntityCollection</see> class.
+            </summary>
+            <param name="parentManager">The parent manager of the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.InsertItem(System.Int32,DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Inserts an entity to the collection at the specified index and sets it as owned by this <see cref="T:DlhSoft.Windows.Data.EntityCollection">EntityCollection</see>.
+            </summary>
+            <param name="index">The zero-based index at which the entity should be inserted.</param>
+            <param name="entity">The entity to insert.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.SetItem(System.Int32,DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Replaces the entity at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the entity to replace.</param>
+            <param name="entity">The new value for the entity at the specified index.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.MoveItem(System.Int32,System.Int32)">
+            <summary>
+            Moves the entity at the specified index to a new location in the collection.
+            </summary>
+            <param name="oldIndex">The zero-based index specifying the location of the entity to be moved.</param>
+            <param name="newIndex">The zero-based index specifying the new location of the entity.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.RemoveItem(System.Int32)">
+            <summary>
+            Removes the entity at the specified index of the collection and sets it as not owned by this <see cref="T:DlhSoft.Windows.Data.EntityCollection">EntityCollection</see>.
+            </summary>
+            <param name="index">The zero-based index of the entity to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.ClearItems">
+            <summary>
+            Removes all entities from the collection.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.GetEntity(System.Object)">
+            <summary>
+            Gets the entity that wraps the specified object, or null if such entity doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The entity that wraps the specified object, or null if such entity doesn't exist.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.EntityCollection.GetEntityAt(System.Int32)">
+            <summary>
+            Gets the entity at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the entity to be get.</param>
+            <returns>The entity at the specified index.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityCollection.Item(System.Int32)">
+            <summary>
+            Gets the entity at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the entity to be get.</param>
+            <returns>The entity at the specified index.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityCollection.ParentManager">
+            <summary>
+            Gets the parent manager of this collection.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.EntityCollection.ParentEntity">
+            <summary>
+            Gets the parent entity of this collection.
+            </summary>
+        </member>
+    </members>
+</doc>

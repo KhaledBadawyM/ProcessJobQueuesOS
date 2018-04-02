@@ -1,0 +1,1464 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.Data.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Converters.MonthYearConverter">
+            <summary>
+            Converts month start date values to their string month and year representation.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.MonthYearConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.MonthYearConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.ListView">
+            <summary>
+            Represents a control that displays a list of entity data items.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property to add entity data items to an <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> managed by the control, or set <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> to your own entity data item collection.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">EntityManagerSource</see> to a customized entity manager to use and to ignore the items collection.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.ListBox">
+            <summary>
+            Contains a list of selectable entity data items.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property to add entity data items to an <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> managed by the control, or set <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> to your own entity data item collection.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">EntityManagerSource</see> to a customized entity manager to use and to ignore the items collection.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.Primitives.Selector">
+            <summary>
+            Represents a control that can be used to select items from among its child elements.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property to add entity data items to an <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> managed by the control, or set <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> to your own entity data item collection.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">EntityManagerSource</see> to a customized entity manager to use and to ignore the items collection.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.ItemsControl">
+            <summary>
+            Represents a control that can be used to present a collection of items.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property to add entity data items to an <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> managed by the control, or set <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> to your own entity data item collection.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">EntityManagerSource</see> to a customized entity manager to use and to ignore the items collection.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">
+            <summary>
+            Represents the base of a control that can be used to present a collection of items.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnApplyTemplate">
+            <summary>
+            When overriden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ClearTemplateParts">
+            <summary>
+            Invoked before a template is applied to the control to ensure that the old template parts are properly cleared.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.CreateEntityManager(System.Collections.IEnumerable)">
+            <summary>
+            Establishes the entity manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            Inheriters should override this method to be able to provide an instance of their own entity manager type.
+            </summary>
+            <param name="items">Item collection to be managed.</param>
+            <returns>The entity manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.</returns>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSourceProperty">
+            <summary>
+            Identifies the ItemsSource dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnItemsSourceChanged(System.Collections.IEnumerable,System.Collections.IEnumerable)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.HasItemsProperty">
+            <summary>
+            Identifies the HasItems dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnItemsChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Invoked when the Items property changes.
+            </summary>
+            <param name="e">Information about the change.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSourceProperty">
+            <summary>
+            Identifies the EntityManagerSource dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnEntityManagerSourceChanged(DlhSoft.Windows.Data.EntityManager,DlhSoft.Windows.Data.EntityManager)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">EntityManagerSource</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerProperty">
+            <summary>
+            Identifies the EntityManager dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ManagedEntitiesProperty">
+            <summary>
+            Identifies the ManagedEntities dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntitiesProperty">
+            <summary>
+            Identifies the LoadedEntities dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntitiesSourceProperty">
+            <summary>
+            Identifies the LoadedEntitiesSource dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsLoadingEntitiesProperty">
+            <summary>
+            Identifies the IsLoadingEntities dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EnsureEntityManagers">
+            <summary>
+            Ensures that the appropriate entity managers are initialized and available from within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.BeginInternalInitialization">
+            <summary>
+            Signals the start of an internal initialization operation.
+            </summary>
+            <returns>The previous initialization state, to be passed later to the <see cref="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EndInternalInitialization(System.Boolean)">EndInternalInitialization</see> method.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EndInternalInitialization(System.Boolean)">
+            <summary>
+            Signals the end of an internal initialization operation.
+            </summary>
+            <param name="previousState">The previous initialization state, returned before by the <see cref="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.BeginInternalInitialization">BeginInternalInitialization</see> method.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledProperty">
+            <summary>
+            Identifies the IsAsyncPresentationEnabled dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnIsAsyncPresentationEnabledChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabled">IsAsyncPresentationEnabled</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledMinCountProperty">
+            <summary>
+            Identifies the IsAsyncPresentationEnabledMinCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnIsAsyncPresentationEnabledMinCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledMinCount">IsAsyncPresentationEnabledMinCount</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledPageSizeProperty">
+            <summary>
+            Identifies the IsAsyncPresentationEnabledPageSize dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnIsAsyncPresentationEnabledPageSizeChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledPageSize">IsAsyncPresentationEnabledPageSize</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.CountProperty">
+            <summary>
+            Identifies the Count dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Count">Count</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnDataPropertyChanged">
+            <summary>
+            Signals that a data binding property such as ItemsSource is changed.
+            Inheriters should call this method from the PropertyChanged callbacks of their own data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.BindItemsSource">
+            <summary>
+            Binds the item source collection to the current <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">ItemsSource</see> property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.BindItems">
+            <summary>
+            Binds the <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> host using the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntities">LoadedEntities</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadEntities">
+            <summary>
+            Prepares the entity items to be presented by the control based on the current items and data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.OnIsAsyncPresentationDeferredChanged">
+            <summary>
+            Raises the IsAsyncPresentationDeferredChanged event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.GetEntity(System.Object)">
+            <summary>
+            Gets the entity in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> that wraps the specified item.
+            </summary>
+            <param name="item">The item to get the entity for.</param>
+            <returns>The entity in the collection that wraps the specified item.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.GetEntityAt(System.Int32)">
+            <summary>
+            Gets the entity in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the entity to be get.</param>
+            <returns>The entity in the collection at the specified index.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.AddChild(System.Object)">
+            <summary>
+            Adds a child object.
+            </summary>
+            <param name="value">The child object to add.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.AddText(System.String)">
+            <summary>
+            Adds a text child object.
+            </summary>
+            <param name="text">The child object to add.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Move(System.Object,System.Int32)">
+            <summary>
+            Moves an item to a new index in the managed collection.
+            </summary>
+            <param name="item">The item to move.</param>
+            <param name="toIndex">The index to move the item to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Move(System.Int32,System.Int32)">
+            <summary>
+            Moves an item to a new index in the managed collection.
+            </summary>
+            <param name="fromIndex">The index to move the item from.</param>
+            <param name="toIndex">The index to move the item to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.MoveRange(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Moves a range of items to a new index in the managed collection.
+            </summary>
+            <param name="fromIndex">The index to move the items from.</param>
+            <param name="count">The count of items to move.</param>
+            <param name="toIndex">The index to move the items to.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ToString">
+            <summary>
+            Provides a string representation of this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> object.
+            </summary>
+            <returns>The string representation of the object.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsControlHost">
+            <summary>
+            Gets the <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> host template part used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsItemsControlHostInitialized">
+            <summary>
+            Gets a value indicating whether the control is initialized and the <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> host is available.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">
+            <summary>
+            Gets the collection used to generate the content of this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ItemsSource">
+            <summary>
+            Gets or sets a collection of items used to generate the content of this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.HasItems">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> contains items.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManagerSource">
+            <summary>
+            Gets or sets a custom <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManager">EntityManager</see> object to use internally within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            When this property is set to an entity manager instance the control items collection is ignored.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManager">
+            <summary>
+            Gets the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManager">EntityManager</see> object that is used internally for managing entities displayed by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.ManagedEntities">
+            <summary>
+            Gets the entity collection managed by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntities">
+            <summary>
+            Gets the entities that are currently loaded within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntitiesSource">
+            <summary>
+            Gets or sets the overriding source collection for loaded entities that would be displayed in the items control host of the control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsLoadingEntities">
+            <summary>
+            Gets a value indicating whether the control is currently loading entities (asynchronously).
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabled">
+            <summary>
+            Gets or sets a value indicating whether to load managed entities asynchronously within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledMinCount">
+            <summary>
+            Gets or sets the initial entity count to load synchronously within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> before initiating the asynchronous load mode when <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabled">IsAsyncPresentationEnabled</see> property is set to true.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabledPageSize">
+            <summary>
+            Gets or sets the initial entity count to load synchronously within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> before initiating the asynchronous load mode when <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabled">IsAsyncPresentationEnabled</see> property is set to true.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Count">
+            <summary>
+            Gets the count of entities managed by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsEntityManagerInternal">
+            <summary>
+            Gets a value that indicates whether the current <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.EntityManager">EntityManager</see> is internal.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationDeferred">
+            <summary>
+            Gets (or sets, for inheriters) a value indicating whether the asynchrnous data loading is currently deferred.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationDeferredChanged">
+            <summary>
+            Occurs when IsAsyncPresentationDeferred value is changed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Item(System.Object)">
+            <summary>
+            Gets the entity in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemsControlBase">ItemsControlBase</see> that wraps the specified item.
+            </summary>
+            <param name="item">The item to get the entity for.</param>
+            <returns>The entity in the collection that wraps the specified item.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.VisibilityFilter">
+            <summary>
+            Gets or sets the visibility filter to apply on the managed entities.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnApplyTemplate">
+            <summary>
+            When overriden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.ResetItemsControlHost">
+            <summary>
+            Resets the items control host based on the current property values of this <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.DisplayMemberPathProperty">
+            <summary>
+            Identifies the DisplayMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnDisplayMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.DisplayMemberPath">DisplayMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemStringFormatProperty">
+            <summary>
+            Identifies the ItemStringFormat dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemStringFormatChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemStringFormat">ItemStringFormat</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemBindingGroupProperty">
+            <summary>
+            Identifies the ItemBindingGroup dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemBindingGroupChanged(System.Windows.Data.BindingGroup,System.Windows.Data.BindingGroup)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemBindingGroup">ItemBindingGroup</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemTemplateProperty">
+            <summary>
+            Identifies the ItemTemplate dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemTemplateChanged(System.Windows.DataTemplate,System.Windows.DataTemplate)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemTemplate">ItemTemplate</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemTemplateSelectorProperty">
+            <summary>
+            Identifies the ItemTemplateSelector dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemTemplateSelectorChanged(System.Windows.Controls.DataTemplateSelector,System.Windows.Controls.DataTemplateSelector)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemTemplateSelector">ItemTemplateSelector</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyleProperty">
+            <summary>
+            Identifies the ItemContainerStyle dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemContainerStyleChanged(System.Windows.Style,System.Windows.Style)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyle">ItemContainerStyle</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyleSelectorProperty">
+            <summary>
+            Identifies the ItemContainerStyleSelector dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemContainerStyleSelectorChanged(System.Windows.Controls.StyleSelector,System.Windows.Controls.StyleSelector)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyleSelector">ItemContainerStyleSelector</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.ItemsPanelProperty">
+            <summary>
+            Identifies the ItemsPanel dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnItemsPanelChanged(System.Windows.Controls.ItemsPanelTemplate,System.Windows.Controls.ItemsPanelTemplate)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.ItemsPanel">ItemsPanel</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.AlternationCountProperty">
+            <summary>
+            Identifies the AlternationCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.OnAlternationCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ItemsControl.AlternationCount">AlternationCount</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.IsTextSearchEnabledProperty">
+            <summary>
+            Identifies the IsTextSearchEnabled dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ItemsControl.IsTextSearchCaseSensitiveProperty">
+            <summary>
+            Identifies the IsTextSearchCaseSensitive dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.GetItemsControlHostItemTemplate">
+            <summary>
+            Gets the item template to be used within the <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> host.
+            </summary>
+            <returns>The item template to be used within the <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> host.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ItemsControl.InitializeItemTemplateDataContext(System.Windows.FrameworkElementFactory)">
+            <summary>
+            Initializes the data context of the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> to be used as an item template.
+            </summary>
+            <param name="contentControlFactory">The source <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> factory to set the data context for.</param>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.BaseItemsControl">
+            <summary>
+            Gets the base <see cref="T:System.Windows.Controls.ItemsControl">ItemsControl</see> used as the core for this control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.DisplayMemberPath">
+            <summary>
+            Gets or sets a path to a value on the source object to serve as the visual representation of the object.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemStringFormat">
+            <summary>
+            Gets or sets a composite string that specifies how to format the items in the <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see> if they are displayed as strings.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemBindingGroup">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Data.BindingGroup">BindingGroup</see> that is used for each item in the <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemTemplate">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.DataTemplate">DataTemplate</see> to be used to display each item.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemTemplateSelector">
+            <summary>
+            Allows the application writer to provide custom logic for choosing a template used to display each item.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyle">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.Style">Style</see> that is applied to the container for element generated for each item.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemContainerStyleSelector">
+            <summary>
+            Gets or sets custom style selection logic for a style that can be applied to each generated item container element.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.ItemsPanel">
+            <summary>
+            Gets or sets the template that defines the panel that controls the layout of items.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.AlternationCount">
+            <summary>
+            Gets or sets then number of alternating item containers in the <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see>, which enables alternating containers to have a unique appearance.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.IsTextSearchEnabled">
+            <summary>
+            Gets or sets a value that indicates whether <see cref="T:System.Windows.Controls.TextSearch">TextSearch</see> is enabled on the <see cref="T:DlhSoft.Windows.Controls.ItemsControl">ItemsControl</see> instance.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ItemsControl.IsTextSearchCaseSensitive">
+            <summary>
+            Gets or sets a value that indicates whether case is a condition when searching for items.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.Primitives.Selector">Selector</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.ClearTemplateParts">
+            <summary>
+            Invoked before a template is applied to the control to ensure that the old template parts are properly cleared.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.ResetItemsControlHost">
+            <summary>
+            Resets the selector host based on the current property values of this <see cref="T:DlhSoft.Windows.Controls.Primitives.Selector">Selector</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItemProperty">
+            <summary>
+            Identifies the IsSynchronizedWithCurrentItem dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectedIndexProperty">
+            <summary>
+            Identifies the SelectedIndex dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectedItemProperty">
+            <summary>
+            Identifies the SelectedItem dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectedEntityProperty">
+            <summary>
+            Identifies the SelectedEntity dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValueProperty">
+            <summary>
+            Identifies the SelectedValue dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValuePathProperty">
+            <summary>
+            Identifies the SelectedValuePath dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.Selector.SelectionChangedEvent">
+            <summary>
+            Identifies the SelectionChanged routed event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.OnSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Called when the selection changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.BindItemsSource">
+            <summary>
+            Binds items source using current data binding properties and initiates synchronizing the selected item with the current item in the collection view if needed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.Selector.BindItems">
+            <summary>
+            Binds the <see cref="T:System.Windows.Controls.Primitives.Selector">Selector</see> host using the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntities">LoadedEntities</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectorHost">
+            <summary>
+            Gets the selector host template part used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.Selector">Selector</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.IsItemsControlHostInitialized">
+            <summary>
+            Gets a value indicating whether the control is initialized and the selector host is available.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.IsSynchronizedWithCurrentItem">
+            <summary>
+            Gets or sets a value that indicates whether a <see cref="T:DlhSoft.Windows.Controls.Primitives.Selector">Selector</see> should keep the <see cref="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedItem">SelectedItem</see> synchronized with the current item in the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.Items">Items</see> property.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedIndex">
+            <summary>
+            Gets or sets the index of the first item in the current selection or returns negative one (-1) if the selection is empty.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedItem">
+            <summary>
+            Gets or sets the first item in the current selection or returns null if the selection is empty.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Windows.Controls.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedEntity">
+            <summary>
+            Gets or sets the first entity in the current selection or returns null if the selection is empty.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="T:System.Windows.Controls.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValue">
+            <summary>
+            Gets the value of the <see cref="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedItem">SelectedItem</see>, obtained by using <see cref="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValuePath">SelectedValuePath</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValuePath">
+            <summary>
+            Gets or sets a value that indicates the path used to get the <see cref="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedValue">SelectedValue</see> from the <see cref="P:DlhSoft.Windows.Controls.Primitives.Selector.SelectedItem">SelectedItem</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Controls.Primitives.Selector.SelectionChanged">
+            <summary>
+            Occurs when the selection of a <see cref="T:DlhSoft.Windows.Controls.Primitives.Selector">Selector</see> changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.ResetItemsControlHost">
+            <summary>
+            Resets the ListBox host based on the current property values of this <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListBox.SelectionModeProperty">
+            <summary>
+            Identifies the SelectionMode dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListBox.SelectedItemsProperty">
+            <summary>
+            Identifies the SelectedItems dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListBox.SelectedEntitiesProperty">
+            <summary>
+            Identifies the SelectedEntities dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.SelectAll">
+            <summary>
+            Selects all the items in a <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.UnselectAll">
+            <summary>
+            Unselects all the items in a <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            </summary>
+            <exception cref="T:System.NotSupportedException"/>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.ScrollIntoView(System.Object)">
+            <summary>
+            Causes the object to scroll into view.
+            </summary>
+            <param name="item">Object to scroll.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.BindItems">
+            <summary>
+            Binds the <see cref="T:System.Windows.Controls.ListBox">ListBox</see> host using the <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.LoadedEntities">LoadedEntities</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.OnSelectionChanged(System.Object,System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>
+            Invoked when the selection in <see cref="T:System.Windows.Controls.ListBox">ListBox</see> host is changed and updates the selection of the <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.UpdateSelectedEntityItems(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Updates the internal selected item collection to reflect the selection changes in the ListBox host.
+            </summary>
+            <param name="addedItems">Gets a list that contains the entities that were selected.</param>
+            <param name="removedItems">Gets a list that contains the entities that were unselected.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.AddSelectedEntityItem(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Adds an entity item to the selection.
+            </summary>
+            <param name="entity">The entity to add to the selection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.RemoveSelectedEntityItem(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Removes an entity item from the selection.
+            </summary>
+            <param name="entity">The entity to remove from the selection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.UpdateSelectedEntities(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Updates the internal selected entity collection to reflect the selection changes in the ListBox host.
+            </summary>
+            <param name="addedItems">Gets a list that contains the entities that were selected.</param>
+            <param name="removedItems">Gets a list that contains the entities that were unselected.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.AddSelectedEntity(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Adds an entity to the selection.
+            </summary>
+            <param name="entity">The entity to add to the selection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListBox.RemoveSelectedEntity(DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Removes an entity from the selection.
+            </summary>
+            <param name="entity">The entity to remove from the selection.</param>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.BaseListBox">
+            <summary>
+            Gets the base <see cref="T:System.Windows.Controls.ListBox">ListBox</see> used as the core for this control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.ListBoxHost">
+            <summary>
+            Gets the <see cref="T:System.Windows.Controls.ListBox">ListBox</see> host template part used internally by this <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.IsItemsControlHostInitialized">
+            <summary>
+            Gets a value indicating whether the control is initialized and the ListBox host is available.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.SelectionMode">
+            <summary>
+            Gets or sets the selection behavior for a <see cref="T:DlhSoft.Windows.Controls.ListBox">ListBox</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.SelectedItems">
+            <summary>
+            Gets the currently selected items.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="P:DlhSoft.Windows.Controls.ListBox.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListBox.SelectedEntities">
+            <summary>
+            Gets the currently selected entities.
+            This is a dependency property.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">The <see cref="P:DlhSoft.Windows.Controls.ListBox.SelectionMode">SelectionMode</see> property is set to <see cref="F:System.Windows.Controls.SelectionMode.Single">Single</see>.</exception>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.OnApplyTemplate">
+            <summary>
+            Invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.ClearTemplateParts">
+            <summary>
+            Invoked before a template is applied to the control to ensure that the old template parts are properly cleared.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.ResetItemsControlHost">
+            <summary>
+            Resets the ListView host based on the current property values of this <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListView.ViewProperty">
+            <summary>
+            Identifies the View dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListView.IsGridViewProperty">
+            <summary>
+            Identifies the IsGridView dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ListView.IsAsyncPresentationDeferredScrollRatioProperty">
+            <summary>
+            Identifies the IsAsyncPresentationDeferredScrollRatio dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.OnIsAsyncPresentationDeferredScrollRatioChanged(System.Double,System.Double)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ListView.IsAsyncPresentationDeferredScrollRatio">IsAsyncPresentationDeferredScrollRatio</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.LoadEntities">
+            <summary>
+            Prepares the entity items to be presented by the control based on the current items and data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.InitializeGridViewColumns(System.Windows.Controls.GridViewColumnCollection,System.Windows.Controls.GridViewColumnCollection)">
+            <summary>
+            Initializes the <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be used based on a specified source <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see>.
+            </summary>
+            <param name="sourceGridViewColumns">The source <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be considered.</param>
+            <param name="referencedGridViewColumns">The <see cref="T:System.Windows.Controls.GridViewColumnCollection">GridViewColumnCollection</see> to be used.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.InitializeGridViewColumnTemplateDataContext(System.Windows.FrameworkElementFactory)">
+            <summary>
+            Initializes the data context of the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> to be used as a template of a <see cref="T:System.Windows.Controls.GridViewColumn">GridViewColumn</see>.
+            </summary>
+            <param name="contentControlFactory">The source <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> factory to set the data context for.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ListView.GetColumnCellTemplate(System.Windows.Controls.GridViewColumn,System.Windows.DataTemplate)">
+            <summary>
+            Gets the column cell template of a specified <see cref="T:System.Windows.Controls.GridViewColumn">GridViewColumn</see>.
+            </summary>
+            <param name="gridViewColumn">The column to get the cell template for.</param>
+            <param name="contentTemplate">The content template to be used.</param>
+            <returns>The column cell template of the specified <see cref="T:System.Windows.Controls.GridViewColumn">GridViewColumn</see>.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.ScrollViewer">
+            <summary>
+            Gets a reference to the internal <see cref="T:System.Windows.Controls.ScrollViewer">ScrollViewer</see> control instance used by the <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.BaseListView">
+            <summary>
+            Gets the base <see cref="T:System.Windows.Controls.ListView">ListView</see> used as the core for this control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.ListViewHost">
+            <summary>
+            Gets the <see cref="T:System.Windows.Controls.ListView">ListView</see> host template part used internally by this <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.IsItemsControlHostInitialized">
+            <summary>
+            Gets a value indicating whether the control is initialized and the ListView host is available.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.View">
+            <summary>
+            Gets or sets an object that defines how the data is styled and organized in a <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> control.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.IsGridView">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> control is using a <see cref="T:System.Windows.Controls.GridView">GridView</see> as its <see cref="P:DlhSoft.Windows.Controls.ListView.View">View</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ListView.IsAsyncPresentationDeferredScrollRatio">
+            <summary>
+            Gets or sets the scroll ratio for which data loading should be deferred within this <see cref="T:DlhSoft.Windows.Controls.ListView">ListView</see> when <see cref="P:DlhSoft.Windows.Controls.Primitives.ItemsControlBase.IsAsyncPresentationEnabled">IsAsyncPresentationEnabled</see> property is set to true.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">
+            <summary>
+            Represents the base of a control that can be used to present an item.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.OnApplyTemplate">
+            <summary>
+            When overriden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ClearTemplateParts">
+            <summary>
+            Invoked before a template is applied to the control to ensure that the old template parts are properly cleared.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.CreateEntityManager(System.Object)">
+            <summary>
+            Establishes the entity manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            Inheriters should override this method to be able to provide an instance of their own entity manager type.
+            </summary>
+            <param name="item">Item to be managed.</param>
+            <returns>The entity manager to be used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.</returns>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ContentProperty">
+            <summary>
+            Identifies the Content dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.Content">Content</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.HasContentProperty">
+            <summary>
+            Identifies the HasContent dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManagerSourceProperty">
+            <summary>
+            Identifies the EntityManagerSource dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.OnEntityManagerSourceChanged(DlhSoft.Windows.Data.EntityManager,DlhSoft.Windows.Data.EntityManager)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManagerSource">EntityManagerSource</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManagerProperty">
+            <summary>
+            Identifies the EntityManager dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ManagedEntityProperty">
+            <summary>
+            Identifies the ManagedEntity dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.LoadedEntityProperty">
+            <summary>
+            Identifies the LoadedEntity dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsLoadingEntityProperty">
+            <summary>
+            Identifies the IsLoadingEntity dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EnsureEntityManagers">
+            <summary>
+            Ensures that the appropriate entity managers are initialized and available from within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.BeginInternalInitialization">
+            <summary>
+            Signals the start of an internal initialization operation.
+            </summary>
+            <returns>The previous initialization state, to be passed later to the <see cref="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EndInternalInitialization(System.Boolean)">EndInternalInitialization</see> method.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EndInternalInitialization(System.Boolean)">
+            <summary>
+            Signals the end of an internal initialization operation.
+            </summary>
+            <param name="previousState">The previous initialization state, returned before by the <see cref="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.BeginInternalInitialization">BeginInternalInitialization</see> method.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsAsyncPresentationEnabledProperty">
+            <summary>
+            Identifies the IsAsyncPresentationEnabled dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.OnIsAsyncPresentationEnabledChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsAsyncPresentationEnabled">IsAsyncPresentationEnabled</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.OnDataPropertyChanged">
+            <summary>
+            Signals that a data binding property such as Content is changed.
+            Inheriters should call this method from the PropertyChanged callbacks of their own data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.BindContent">
+            <summary>
+            Binds the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> host using the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.LoadedEntity">LoadedEntity</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.LoadEntity">
+            <summary>
+            Prepares the entity item to be presented by the control based on the current content and data binding properties.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.AddChild(System.Object)">
+            <summary>
+            Adds a child object.
+            </summary>
+            <param name="value">The child object to add.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.AddText(System.String)">
+            <summary>
+            Adds a text child object.
+            </summary>
+            <param name="text">The child object to add.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ToString">
+            <summary>
+            Provides a string representation of this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see> object.
+            </summary>
+            <returns>The string representation of the object.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ContentControlHost">
+            <summary>
+            Gets the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> host template part used internally by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsContentControlHostInitialized">
+            <summary>
+            Gets a value indicating whether the control is initialized and the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> host is available.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.Content">
+            <summary>
+            Gets or sets an item used to generate the content of this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.HasContent">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see> has content.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManagerSource">
+            <summary>
+            Gets or sets a custom <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManager">EntityManager</see> object to use internally within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            When this property is set to an entity manager instance the control content is ignored.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManager">
+            <summary>
+            Gets the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManager">EntityManager</see> object that is used internally for managing the entity displayed by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.ManagedEntity">
+            <summary>
+            Gets the entity collection managed by this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.LoadedEntity">
+            <summary>
+            Gets the entities that are currently loaded within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsLoadingEntity">
+            <summary>
+            Gets a value indicating whether the control is currently loading entity (asynchronously).
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsAsyncPresentationEnabled">
+            <summary>
+            Gets or sets a value indicating whether to load managed entity asynchronously within this <see cref="T:DlhSoft.Windows.Controls.Primitives.ContentControlBase">ContentControlBase</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.IsEntityManagerInternal">
+            <summary>
+            Gets a value that indicates whether the current <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManager">EntityManager</see> is internal.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.DateTimePicker">
+            <summary>
+            Represents a combo box that allows selecting a date and edit a date and time value.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.DateTimePicker.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.DateTimePicker">DateTimePicker</see> class.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.DateTimePicker.MonthStartProperty">
+            <summary>
+            Identifies the MonthStart dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.DateTimePicker.DefaultTimeOfDayProperty">
+            <summary>
+            Identifies the DefaultTimeOfDay dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.DateTimePicker.TodayDateTimeProperty">
+            <summary>
+            Identifies the TodayDateTime dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.DateTimePicker.TodayTextProperty">
+            <summary>
+            Identifies the TodayText dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.WeekItems">
+            <summary>
+            Gest the collection of week items representing the days of the week.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.MonthItems">
+            <summary>
+            Gest the collection of month items representing the days of the month.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.MonthStart">
+            <summary>
+            Gets the month that is displayed in the control popup.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.DefaultTimeOfDay">
+            <summary>
+            Gets or sets the default time of day to be used when a date is specified or selected.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.TodayDateTime">
+            <summary>
+            Gets the date and time to be used when the today selection button is clicked in the control popup.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.DateTimePicker.TodayText">
+            <summary>
+            Gets or sets the text that is displayed as a label on the today selection button in the control popup.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.ContentControl">
+            <summary>
+            Represents a control that can be used to present an items.
+            Use <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.Content">Content</see> property to set the entity data item managed by the control.
+            Alternatively you can set the <see cref="P:DlhSoft.Windows.Controls.Primitives.ContentControlBase.EntityManagerSource">EntityManagerSource</see> to a customized entity manager to use and to select the content from.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Controls.ContentControl">ContentControl</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.OnApplyTemplate">
+            <summary>
+            When overriden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate">ApplyTemplate</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.InitializeTemplateParts">
+            <summary>
+            Invoked when the template is applied to the control to ensure that the required template parts are identified and properly initialized within the control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.ResetContentControlHost">
+            <summary>
+            Resets the content control host based on the current property values of this <see cref="T:DlhSoft.Windows.Controls.ContentControl">ContentControl</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ContentControl.DisplayMemberPathProperty">
+            <summary>
+            Identifies the DisplayMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.OnDisplayMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ContentControl.DisplayMemberPath">DisplayMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ContentControl.ContentStringFormatProperty">
+            <summary>
+            Identifies the ContentStringFormat dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.OnContentStringFormatChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ContentControl.ContentStringFormat">ContentStringFormat</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ContentControl.ContentTemplateProperty">
+            <summary>
+            Identifies the ContentTemplate dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.OnContentTemplateChanged(System.Windows.DataTemplate,System.Windows.DataTemplate)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ContentControl.ContentTemplate">ContentTemplate</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Controls.ContentControl.ContentTemplateSelectorProperty">
+            <summary>
+            Identifies the ContentTemplateSelector dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.OnContentTemplateSelectorChanged(System.Windows.Controls.DataTemplateSelector,System.Windows.Controls.DataTemplateSelector)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Controls.ContentControl.ContentTemplateSelector">ContentTemplateSelector</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.GetContentControlHostContentTemplate">
+            <summary>
+            Gets the content template to be used within the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> host.
+            </summary>
+            <returns>The content template to be used within the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> host.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.ContentControl.InitializeContentTemplateDataContext(System.Windows.FrameworkElementFactory)">
+            <summary>
+            Initializes the data context of the <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> to be used as a content template.
+            </summary>
+            <param name="contentControlFactory">The source <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> factory to set the data context for.</param>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ContentControl.BaseContentControl">
+            <summary>
+            Gets the base <see cref="T:System.Windows.Controls.ContentControl">ContentControl</see> used as the core for this control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ContentControl.DisplayMemberPath">
+            <summary>
+            Gets or sets a path to a value on the source object to serve as the visual representation of the object.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ContentControl.ContentStringFormat">
+            <summary>
+            Gets or sets a composite string that specifies how to format the content in the <see cref="T:DlhSoft.Windows.Controls.ContentControl">ContentControl</see> if it is displayed as string.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ContentControl.ContentTemplate">
+            <summary>
+            Gets or sets the <see cref="T:System.Windows.DataTemplate">DataTemplate</see> to be used to display the content.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.ContentControl.ContentTemplateSelector">
+            <summary>
+            Allows the application writer to provide custom logic for choosing a template used to display the content.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">
+            <summary>
+            Holds the list of items that constitute the content of an items control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.Add(System.Object)">
+            <summary>
+            Adds an item to the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+            <param name="item">The object to add to the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.</param>
+            <returns>The position into which the new element was inserted.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.Insert(System.Int32,System.Object)">
+            <summary>
+            Inserts an item to the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="item">The object to insert into the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.Clear">
+            <summary>
+            Removes all items from the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.Remove(System.Object)">
+            <summary>
+            Removes the first occurrence of a specific object from the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+            <param name="item">The object to remove from the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the elements of the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> to an array, starting at a particular array index.
+            </summary>
+            <param name="array">The one-dimensional array that is the destination of the elements copied from <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>. The array must have zero-based indexing.</param>
+            <param name="index">The zero-based index in array at which copying begins.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through a collection.
+            </summary>
+            <returns>An enumerator object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.Contains(System.Object)">
+            <summary>
+            Determines whether the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> contains a specific value.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see></param>
+            <returns>True if item is found in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>; otherwise, false.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.IndexOf(System.Object)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+            <param name="item">The object to locate in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.</param>
+            <returns>The index of value if found in the list; otherwise, -1.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Controls.Primitives.ItemCollection.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Raises the CollectionChanged event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.IsFixedSize">
+            <summary>
+            Gets a value indicating whether the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> has a fixed size.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> is read-only.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.IsSynchronized">
+            <summary>
+            Gets a value indicating whether access to the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see> is synchronized (thread safe).
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.SyncRoot">
+            <summary>
+            Gets an object that can be used to syncrhonize access to the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.Count">
+            <summary>
+            Gets the number of elements contained in the <see cref="T:DlhSoft.Windows.Controls.Primitives.ItemCollection">ItemCollection</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Controls.Primitives.ItemCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the element at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the element to get or set.</param>
+            <returns>The element at the specified index.</returns>
+        </member>
+        <member name="E:DlhSoft.Windows.Controls.Primitives.ItemCollection.CollectionChanged">
+            <summary>
+            Occurs when the collection changes.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Converters.DayOfWeekInitialConverter">
+            <summary>
+            Converts day of week values to their abbreviated string representation.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.DayOfWeekInitialConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Converters.DayOfWeekInitialConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Converts a value.
+            </summary>
+        </member>
+    </members>
+</doc>

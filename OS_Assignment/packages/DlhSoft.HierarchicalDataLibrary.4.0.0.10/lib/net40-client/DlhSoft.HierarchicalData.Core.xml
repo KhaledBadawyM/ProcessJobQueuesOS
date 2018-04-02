@@ -1,0 +1,786 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DlhSoft.HierarchicalData.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DlhSoft.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.NodeManager">
+            <summary>
+            Object collection management engine that uses a node collection to wrap the objects internally.
+            Provides automatic management of indentation (node hierarchy) and expansion (node visibility) for the collection items.
+            Use <see cref="P:DlhSoft.Windows.Data.EntityManager.Items">Items</see> property to set your own node data item collection to manage and use <see cref="P:DlhSoft.Windows.Data.NodeManager.Nodes">Nodes</see> property to access the managed node collection mapping your items.
+            It is recommended to set at least these data member properties: <see cref="P:DlhSoft.Windows.Data.NodeManager.IndentationMemberPath">IndentationMemberPath</see>.
+            These data member properties can also be set: <see cref="P:DlhSoft.Windows.Data.NodeManager.IsExpandedMemberPath">IsExpandedMemberPath</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleNodeItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class  using simple data management mode.
+            </summary>
+            <param name="simpleNodeItems">Item definitions representing nodes to be initially added to the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(DlhSoft.Windows.Data.Entity,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or null if the manager has no parent entity.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(DlhSoft.Windows.Data.Entity,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleNodeItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class  using simple data management mode.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or null if the manager has no parent entity.</param>
+            <param name="simpleNodeItems">Item definitions representing nodes to be initially added to the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(DlhSoft.Windows.Data.Entity,System.Collections.IEnumerable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or null if the manager has no parent entity.</param>
+            <param name="items">Collection of node items to be managed.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(System.Collections.IEnumerable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            The initial values of the data member properties are set to appropriate property paths for using <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> objects.
+            </summary>
+            <param name="items">Collection of node items to be managed.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(DlhSoft.Windows.Data.Entity,System.Collections.IEnumerable,System.String,System.String,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            </summary>
+            <param name="parentEntity">Parent entity that owns the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or null if the manager has no parent entity.</param>
+            <param name="items">Collection of node items to be managed.</param>
+            <param name="indentationMemberPath">Path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item.</param>
+            <param name="isExpandedMemberPath">Path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> initializes.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> is disposed.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.#ctor(System.Collections.IEnumerable,System.String,System.String,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.EntityManager.Initialization,DlhSoft.Windows.Data.DataManagementMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> class.
+            </summary>
+            <param name="items">Collection of node items to be managed.</param>
+            <param name="indentationMemberPath">Path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item.</param>
+            <param name="isExpandedMemberPath">Path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> initializes.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> is disposed.</param>
+            <param name="dataManagementMode">Data management mode to use.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.CreateEntityCollection">
+            <summary>
+            Creates the internal node collection to be used as the node host of this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            </summary>
+            <returns>The internal node collection to be used as the node host of this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.CreateReadOnlyEntityCollection(DlhSoft.Windows.Data.EntityCollection)">
+            <summary>
+            Creates the internal read-only node collection to be provided by this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.InitializeEntityCollection(DlhSoft.Windows.Data.EntityCollection)">
+            <summary>
+            Sets up the read only node collection to be used for viewing nodes externally.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.CreateEntity(System.Object)">
+            <summary>
+            Creates a new node wrapping the specified object.
+            </summary>
+            <param name="item">Node item to be wrapped by the new node.</param>
+            <returns>The new node that wraps the specified object.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.CreateEntityFromSimpleItem(DlhSoft.Windows.Data.SimpleEntityItem)">
+            <summary>
+            Creates a new node for simple data management mode.
+            </summary>
+            <param name="entityItem">The entity item definition to use.</param>
+            <returns>The new node.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.InsertRange(System.Int32,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleNodeItem})">
+            <summary>
+            Inserts a set of nodes into the managed collection.
+            </summary>
+            <param name="index">The zero-based index at which the nodes should be inserted.</param>
+            <param name="simpleNodeItems">Item definitions representing the nodes to insert.</param>
+            <returns>The new nodes.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.Insert(System.Int32,DlhSoft.Windows.Data.SimpleNodeItem)">
+            <summary>
+            Inserts a node into the managed collection.
+            </summary>
+            <param name="index">The zero-based index at which the node should be inserted.</param>
+            <param name="simpleNodeItem">Item definition representing the node to insert.</param>
+            <returns>The new node.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.AddRange(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.SimpleNodeItem})">
+            <summary>
+            Adds a set of nodes to the end of the managed collection.
+            </summary>
+            <param name="simpleNodeItems">Item definitions representing the nodes to be added at the end of the collection.</param>
+            <returns>The new nodes.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.Add(DlhSoft.Windows.Data.SimpleNodeItem)">
+            <summary>
+            Adds a node to the end of the managed collection.
+            </summary>
+            <param name="simpleNodeItem">Item definition representing the node to be added at the end of the collection.</param>
+            <returns>The new node.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.RemoveRange(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Removes specific nodes from the managed collection.
+            </summary>
+            <param name="nodes">The nodes to remove from the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.Remove(DlhSoft.Windows.Data.Node)">
+            <summary>
+            Removes a specific node from the managed collection.
+            </summary>
+            <param name="node">The node to remove from the collection.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.NodesProperty">
+            <summary>
+            Identifies the Nodes dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.IndentationMemberPathProperty">
+            <summary>
+            Identifies the IndentationMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnIndentationMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.IndentationMemberPath">IndentationMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.IsExpandedMemberPathProperty">
+            <summary>
+            Identifies the IsExpandedMemberPath dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnIsExpandedMemberPathChanged(System.String,System.String)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.IsExpandedMemberPath">IsExpandedMemberPath</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.RootNodesProperty">
+            <summary>
+            Identifies the RootNodes dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnRootNodesChanged(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node},System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.RootNodes">RootNodes</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.RootCountProperty">
+            <summary>
+            Identifies the RootCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnRootCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.RootCount">RootCount</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.LeafNodesProperty">
+            <summary>
+            Identifies the LeafNodes dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnLeafNodesChanged(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node},System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.LeafNodes">LeafNodes</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeManager.LeafCountProperty">
+            <summary>
+            Identifies the LeafCount dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnLeafCountChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.NodeManager.LeafCount">LeafCount</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.GetNode(System.Object)">
+            <summary>
+            Gets the node that wraps the specified object from the internal node collection, or null if such node doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The node that wraps the specified object from the internal node collection, or null if such node doesn't exist.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.GetNodeAt(System.Int32)">
+            <summary>
+            Gets the node at the specified index from the internal node collection.
+            </summary>
+            <param name="index">The zero-based index of the node to be get.</param>
+            <returns>The node at the specified index from the internal node collection.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.ExpandAll">
+            <summary>
+            Expands all nodes of the internal node collection so that all child nodes become visible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.CollapseAll">
+            <summary>
+            Collapses all nodes of the internal node collection so that all child nodes become invisible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnInitializeEntitiesCompleting(System.Int32,System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Entity})">
+            <summary>
+            Executed when the managed nodes are initialized.
+            <param name="index">The initial index of the nodes.</param>
+            <param name="entities">The initialized nodes.</param>
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeManager.OnInitializeEntitiesCompleted">
+            <summary>
+            Executed after the managed nodes are initialized.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.Nodes">
+            <summary>
+            Gets the read-only node collection wrapping the objects that are currently managed.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.IndentationMemberPath">
+            <summary>
+            Gets or sets the path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item. 
+            The hierarchy is based on the indentation level values of the nodes, so that a node with a lower index in the collection and having a specific indentation level will become the parent node for the nodes with a higher index in the collection and having an increased indentation level. 
+            It is recommended to set this property.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.IsExpandedMemberPath">
+            <summary>
+            Gets or sets the path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.
+            If a parent node is expanded its child nodes become visible. If a parent node is collapsed its child nodes become invisible.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.RootNodes">
+            <summary>
+            Gets the root nodes managed by this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.RootCount">
+            <summary>
+            Gets the count of root nodes managed by this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.LeafNodes">
+            <summary>
+            Gets the leaf nodes managed by this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.LeafCount">
+            <summary>
+            Gets the count of leaf nodes managed by this <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeManager.Item(System.Object)">
+            <summary>
+            Gets the node that wraps the specified object from the internal node collection, or null if such node doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The node that wraps the specified object from the internal node collection, or null if such node doesn't exist.</returns>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.Node">
+            <summary>
+            Represents a node item object wrapper generated and managed by a <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>, aware of its indentation in a hierarchical collection.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.#ctor(System.Object,System.String,System.String,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization,DlhSoft.Windows.Data.Entity.Initialization)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> class.
+            </summary>
+            <param name="item">Source node item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.</param>
+            <param name="indentationMemberPath">Path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item.</param>
+            <param name="isExpandedMemberPath">Path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.</param>
+            <param name="completingParentManagerInitialization">A method to be called when the initialization of the parent <see cref="T:DlhSoft.Windows.Data.EntityManager">EntityManager</see> is completed.</param>
+            <param name="insertedIntoParentCollectionInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> is inserted into the parent collection.</param>
+            <param name="removingFromParentCollectionInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> is removed from the parent collection.</param>
+            <param name="disposingInitialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> is disposed.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.#ctor(System.Object,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> class.
+            </summary>
+            <param name="item">Source node item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.</param>
+            <param name="indentationMemberPath">Path to an <see cref="T:System.Int32">Int32</see> value on the source node item to serve as the indentation level in the hierarchical collection, or null to indicate that the indentation level is not provided by the source node item.</param>
+            <param name="isExpandedMemberPath">Path to a <see cref="T:System.Boolean">Boolean</see> value on the source node item to serve as the expansion indicator in the hierarchical collection, or null to indicate that the expansion indicator is not provided by the source node item.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.#ctor(System.Object,DlhSoft.Windows.Data.Entity.Initialization)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> class.
+            </summary>
+            <param name="item">Node item to be wrapped by the <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.</param>
+            <param name="initialization">A method to be called when the <see cref="T:DlhSoft.Windows.Data.Node">Node</see> is inserted into the parent collection.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.HasParentProperty">
+            <summary>
+            Identifies the HasParent dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.ParentProperty">
+            <summary>
+            Identifies the Parent dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnParentChanged(DlhSoft.Windows.Data.Node,DlhSoft.Windows.Data.Node)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Node.Parent">Parent</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.HasChildrenProperty">
+            <summary>
+            Identifies the HasChildren dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.ChildrenProperty">
+            <summary>
+            Identifies the Children dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnChildrenChanged(System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node},System.Collections.Generic.IEnumerable{DlhSoft.Windows.Data.Node})">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Node.Children">Children</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnParentChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Node.ParentChanged">ParentChanged</see> event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnHasParentChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Node.HasParentChanged">HasParentChanged</see> event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnHasChildrenChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Node.HasChildrenChanged">HasChildrenChanged</see> event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnHierarchyChanging">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Node.HierarchyChanging">HierarchyChanging</see> event.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnHierarchyChanged">
+            <summary>
+            Raises the <see cref="E:DlhSoft.Windows.Data.Node.HierarchyChanged">HierarchyChanged</see> event.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.IndentationProperty">
+            <summary>
+            Identifies the Indentation dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnIndentationChanged(System.Int32,System.Int32)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Node.Indentation">Indentation</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.IncreaseIndentation">
+            <summary>
+            Increases the indentation of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.DecreaseIndentation">
+            <summary>
+            Decreases the indentation of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.IsExpandedProperty">
+            <summary>
+            Identifies the IsExpanded dependency property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnIsExpandedChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Node.IsExpanded">IsExpanded</see> property changes.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.Node.IsExpansionEnabledProperty">
+            <summary>
+            Identifies the IsExpansionEnabled attached property.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.GetIsExpansionEnabled(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value indicating whether node expansion is enabled for a specified element such as a node item.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.SetIsExpansionEnabled(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Sets a value indicating whether node expansion is enabled for a specified element such as a node item.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnIsExpansionEnabledChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the <see cref="P:DlhSoft.Windows.Data.Node.IsExpansionEnabled">IsExpansionEnabled</see> property changes.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.Expand">
+            <summary>
+            Expands this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> so that its child nodes become visible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.ExpandBranch">
+            <summary>
+            Expands the branch having this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> as root node so that all child nodes of the branch become visible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.ExpandPath">
+            <summary>
+            Expands the path to this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> so that all ancestor nodes become expanded to ensure this node becomes visible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.Collapse">
+            <summary>
+            Collapses this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> so its child nodes become invisible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.CollapseBranch">
+            <summary>
+            Collapses the branch having this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> as root node so that all child nodes of the branch become invisible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.CollapsePath">
+            <summary>
+            Collapses the path to this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> so that all ancestor nodes become closed to ensure this node and all its parents that have parents become invisible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.ToggleIsExpanded">
+            <summary>
+            Toggles the expansion for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> so that if the node was collapsed it is expanded and if the node was expanded it is collapsed.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Node.OnFilteringVisibilityChanged">
+            <summary>
+            Applies visibility changes when filtering visibility changes.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.ParentCollection">
+            <summary>
+            Gets the parent collection that owns this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.HasParent">
+            <summary>
+            Gets a value indicating whether this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> has a parent node in the collection based on indentation.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.Parent">
+            <summary>
+            Gets the parent node of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> in the collection based on indentation.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.HasChildren">
+            <summary>
+            Gets a value indicating whether this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> has any child nodes in the collection based on indentation.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.Children">
+            <summary>
+            Enumerates the child nodes of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> in the collection based on indentation.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Node.ParentChanged">
+            <summary>
+            Occurs when the parent changes for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Node.HasParentChanged">
+            <summary>
+            Occurs when the has parent property value changes for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Node.HasChildrenChanged">
+            <summary>
+            Occurs when the has children property value changes for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Node.HierarchyChanging">
+            <summary>
+            Occurs when the hierarchy is about to change at this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="E:DlhSoft.Windows.Data.Node.HierarchyChanged">
+            <summary>
+            Occurs when the hierarchy changes at this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.Indentation">
+            <summary>
+            Gets or sets the indentation level of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanIncreaseIndentation">
+            <summary>
+            Gets a value indicating whether the indentation for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> can be increased.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanDecreaseIndentation">
+            <summary>
+            Gets a value indicating whether the indentation for this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> can be decreased.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.IsExpanded">
+            <summary>
+            Gets or sets the expansion indicator of this <see cref="T:DlhSoft.Windows.Data.Node">Node</see>.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.IsExpansionEnabled">
+            <summary>
+            Gets or sets a value indicating whether expansion is enabled for this node.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanExpand">
+            <summary>
+            Gets a value indicating whether this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> can be expanded.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanExpandBranch">
+            <summary>
+            Gets a value indicating whether the branch that has this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> as root node can be expanded.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanCollapse">
+            <summary>
+            Gets a value indicating whether this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> can be collapsed.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.Node.CanCollapseBranch">
+            <summary>
+            Gets a value indicating whether the branch that has this <see cref="T:DlhSoft.Windows.Data.Node">Node</see> as root node can be collapsed.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.Licensing.NodeManager">
+            <summary>
+            Provides licensing utilities for NodeManager control.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.Licensing.NodeManager.SetLicense(System.String)">
+            <summary>
+            Predefines the license content to be considered for NodeManager component instances, at initialization time.
+            </summary>
+            <param name="licenseContent">The XML content string of the license to be defined for this component type.</param>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.SimpleNodeItem">
+            <summary>
+            Represents a simple node item that can be used as a data definition object when inserting or adding a <see cref="T:DlhSoft.Windows.Data.Node">Node</see> using a <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> with simple data management mode.
+            It is recommended to set at least these data properties: <see cref="P:DlhSoft.Windows.Data.SimpleNodeItem.Indentation">Indentation</see>.
+            These data properties can also be set: <see cref="P:DlhSoft.Windows.Data.SimpleNodeItem.IsExpanded">IsExpanded</see>.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.INodeItem">
+            <summary>
+            Represents the interface of a node item aware of its indentation and expansion state (can be expanded or collapsed) that can be used as a source object to be wrapped within a <see cref="T:DlhSoft.Windows.Data.Node">Node</see> and managed using a <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or hosted within a hierarchical data management control.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.INodeItem.Indentation">
+            <summary>
+            Gets or sets the indentation level of this <see cref="T:DlhSoft.Windows.Data.INodeItem">INodeItem</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.INodeItem.IsExpanded">
+            <summary>
+            Gets or sets the expansion indicator of this <see cref="T:DlhSoft.Windows.Data.INodeItem">INodeItem</see>.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.SimpleNodeItem.Indentation">
+            <summary>
+            Gets or sets the indentation level of this <see cref="T:DlhSoft.Windows.Data.SimpleNodeItem">SimpleNodeItem</see>.
+            The hierarchy is based on the indentation level values of the nodes, so that a node with a lower index in the collection and having a specific indentation level will become the parent node for the nodes with a higher index in the collection and having an increased indentation level. 
+            It is recommended to set this property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.SimpleNodeItem.IsExpanded">
+            <summary>
+            Gets or sets the expansion indicator of this <see cref="T:DlhSoft.Windows.Data.SimpleNodeItem">SimpleNodeItem</see>.
+            If a parent node is expanded its child nodes become visible. If a parent node is collapsed its child nodes become invisible.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.ReadOnlyNodeCollection">
+            <summary>
+            Read-only observable collection of <see cref="T:DlhSoft.Windows.Data.Node">Node</see> objects.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyNodeCollection.#ctor(DlhSoft.Windows.Data.NodeCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.ReadOnlyNodeCollection">ReadOnlyNodeCollection</see> class.
+            </summary>
+            <param name="nodes">Source node collection to be used by the new read-only node collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.ReadOnlyNodeCollection.CreateNewItem(System.Object[])">
+            <summary>
+            Called when a new node item is added to the collection by calling <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method and the event handlers of the <see cref="E:DlhSoft.Windows.Data.ReadOnlyEntityCollection.NewItem">NewItem</see> event haven't set up the new node item themselves.
+            </summary>
+            <param name="parameters">List of parameters passed from <see cref="M:DlhSoft.Windows.Data.ReadOnlyEntityCollection.InsertNewItem(System.Int32,System.Object[])">InsertNewItem</see> method used for actually creating the new node item.</param>
+            <returns>The newly created node item.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.ReadOnlyNodeCollection.Item(System.Int32)">
+            <summary>
+            Gets the node at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the node to get.</param>
+            <returns>The node at the specified index.</returns>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.NodeItem">
+            <summary>
+            Represents a node item aware of its indentation and expansion state (can be expanded or collapsed) that can be used as a source object to be wrapped within a <see cref="T:DlhSoft.Windows.Data.Node">Node</see> and managed using a <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see> or hosted within a hierarchical data management control.
+            It is recommended to set at least these data properties: <see cref="P:DlhSoft.Windows.Data.NodeItem.Indentation">Indentation</see>.
+            These data properties can also be set: <see cref="P:DlhSoft.Windows.Data.NodeItem.IsExpanded">IsExpanded</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> class.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeItem.#ctor(System.Object,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see> class.
+            </summary>
+            <param name="content">Content of this <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see>.</param>
+            <param name="indentation">Indentation level of this <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see>.</param>
+            <param name="isExpanded">Expansion indicator of this <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see>.</param>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeItem.IndentationProperty">
+            <summary>
+            Identifies the Indentation dependency property.
+            </summary>
+        </member>
+        <member name="F:DlhSoft.Windows.Data.NodeItem.IsExpandedProperty">
+            <summary>
+            Identifies the IsExpanded dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeItem.Indentation">
+            <summary>
+            Gets or sets the indentation level of this <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see>.
+            The hierarchy is based on the indentation level values of the nodes, so that a node with a lower index in the collection and having a specific indentation level will become the parent node for the nodes with a higher index in the collection and having an increased indentation level. 
+            It is recommended to set this property.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeItem.IsExpanded">
+            <summary>
+            Gets or sets the expansion indicator of this <see cref="T:DlhSoft.Windows.Data.NodeItem">NodeItem</see>.
+            If a parent node is expanded its child nodes become visible. If a parent node is collapsed its child nodes become invisible.
+            This is a dependency property.
+            </summary>
+        </member>
+        <member name="T:DlhSoft.Windows.Data.NodeCollection">
+            <summary>
+            Observable collection that owns <see cref="T:DlhSoft.Windows.Data.Node">Node</see> objects used internally by a <see cref="T:DlhSoft.Windows.Data.NodeManager">NodeManager</see>.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.#ctor(DlhSoft.Windows.Data.NodeManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DlhSoft.Windows.Data.NodeCollection">NodeCollection</see> class.
+            </summary>
+            <param name="parentManager">The parent manager of the collection.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.InsertItem(System.Int32,DlhSoft.Windows.Data.Entity)">
+            <summary>
+            Inserts a node to the collection at the specified index and sets it as owned by this <see cref="T:DlhSoft.Windows.Data.NodeCollection">NodeCollection</see>.
+            </summary>
+            <param name="index">The zero-based index at which the node should be inserted.</param>
+            <param name="entity">The node to insert.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.RemoveItem(System.Int32)">
+            <summary>
+            Removes the node at the specified index of the collection and sets it as not owned by this <see cref="T:DlhSoft.Windows.Data.NodeCollection">NodeCollection</see>.
+            </summary>
+            <param name="index">The zero-based index of the node to remove.</param>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.GetNode(System.Object)">
+            <summary>
+            Gets the node that wraps the specified object, or null if such node doesn't exist.
+            </summary>
+            <param name="item">Wrapped object to search for.</param>
+            <returns>The node that wraps the specified object, or null if such node doesn't exist.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.GetNodeAt(System.Int32)">
+            <summary>
+            Gets the node at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the node to be get.</param>
+            <returns>The node at the specified index.</returns>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.ExpandAll">
+            <summary>
+            Expands all nodes of the collection so that all child nodes become visible.
+            </summary>
+        </member>
+        <member name="M:DlhSoft.Windows.Data.NodeCollection.CollapseAll">
+            <summary>
+            Collapses all nodes of the collection so that all child nodes become invisible.
+            </summary>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeCollection.Item(System.Int32)">
+            <summary>
+            Gets the node at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the node to be get.</param>
+            <returns>The node at the specified index.</returns>
+        </member>
+        <member name="P:DlhSoft.Windows.Data.NodeCollection.ParentManager">
+            <summary>
+            Gets the parent manager of this collection.
+            </summary>
+        </member>
+    </members>
+</doc>
